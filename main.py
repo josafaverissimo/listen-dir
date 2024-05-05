@@ -38,6 +38,9 @@ def get_target_dirs_from_user() -> list[str]:
         target_dir = input('Target dir path [q to quit]: ')
 
         if target_dir in flags:
+            if not target_dirs:
+                print('Target dir is required. Type at least one target dir')
+                continue
             break
 
         if not exists(target_dir):
